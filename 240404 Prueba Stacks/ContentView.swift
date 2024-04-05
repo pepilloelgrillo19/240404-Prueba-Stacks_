@@ -12,7 +12,7 @@ struct ContentView: View {
         //.leading hace que todos los elementos se alineen a la izquierda en vez de central
         //spacing separa los elementos que se contienen
         VStack{
-            CabeceraView()
+            CabeceraView().padding(.top,10)
             HStack {
                 LuchadorView(luchador: "Goku", fuerza: "800/1000", trans: "Ultra Instinto", colorTexto: .black, colorFondo: .purple, imagenLuchador: "goku_ultrainstinto")
                 ZStack {
@@ -39,7 +39,8 @@ struct ContentView: View {
                         .font(.system(.title, design: .rounded))
                         .foregroundColor(.white)
                         .offset(x:0, y: -30)
-                }
+                }.padding(.horizontal,7)
+                Spacer()
             }
         }
     }
@@ -53,16 +54,20 @@ struct ContentView_Previews: PreviewProvider {
 
 struct CabeceraView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text("Elige")
-                .font(.system(.largeTitle, design: .rounded))
-                .foregroundColor(.purple)
-                .fontWeight(.black)
-            Text("tu luchador")
-                .font(.system(.largeTitle, design: .rounded))
-                .foregroundColor(.purple)
-                .fontWeight(.black)
-        }
+        HStack {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Elige")
+                    .font(.system(.largeTitle, design: .rounded))
+                    .foregroundColor(.purple)
+                    .fontWeight(.black)
+                Text("tu luchador")
+                    .font(.system(.largeTitle, design: .rounded))
+                    .foregroundColor(.purple)
+                    .fontWeight(.black)
+            }
+            Spacer()
+        }.padding(.leading,7)
+            .padding(.bottom,30)
     }
 }
 
